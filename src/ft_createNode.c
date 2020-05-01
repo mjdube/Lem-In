@@ -1,12 +1,13 @@
 #include "lem_in.h"
 
-t_block     ft_createNode(void)
+t_block     *ft_createNode(void)
 {
     t_block *node;
 
     node = (t_block*)ft_memalloc(sizeof(t_block));
-    node->nameRoom = "";
+    node->nameRoom = NULL;
     node->visit = 0;
     node->next = NULL;
     node->prev = NULL;
+    return (node);
 }
