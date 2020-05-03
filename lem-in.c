@@ -1,17 +1,27 @@
 #include "src/lem_in.h"
 
-int         main(int argc, char **argv)
+int                 main(int argc, char **argv)
 {
-    char    *line;
-    char    **start;
-    char    **end;
-    int     count_links;
-    int     ants;
-    int     fd;
-    static t_block *links[1024];
+    char            *line;
+    char            **start;
+    char            **end;
+    int             count_links;
+    int             count_paths;
+    int             ants;
+    int             fd;
+    
+    int i = 0;
+
+    t_block         *pre_paths;
+   
+
+    t_block  *links[1024];
+    t_block  *paths[1024];
     
     fd = 0;
     count_links = 0;
+    count_paths = 0;
+
     get_next_line(fd, &line);
     ft_putendl(line);
     if (ft_checking_ants(line))
@@ -40,7 +50,18 @@ int         main(int argc, char **argv)
                     ft_putendl(line);
                 }
             }
-            ft_putendl(ft_path_list(start[0], end[0], links));
+           
+                    ft_path_visits(start[0], end[0], count_links, &(*links));
+                    ft_path_list(start[0], end[0], count_links, links, &(pre_paths));
+                    while (pre_paths->next != NULL)
+                    {
+                        ft_putendl(pre_paths->nameRoom);
+                        pre_paths = pre_paths->next;
+                    }
+                    paths[count_paths] = pre_paths;
+                    count_paths++;
+            
+            // ft_path_list(start[0], end[0], count_links, &(*links), &pre_paths);
         }
         else 
             ft_putstr("ERROR\n");

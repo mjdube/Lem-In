@@ -6,14 +6,16 @@
 typedef struct      s_node 
 {
     char    *nameRoom;
-    int     visit;
+    int     visit_1;
+    int     visit_2;
     struct  s_node *next;
     struct  s_node *prev;
 }                   t_block;
 
 t_block         *ft_createNode(void);
-t_block         *ft_path_list(char *start, char *end, t_block **links);
+void         ft_path_list(char *start, char *end, int size, t_block **links, t_block **list);
 t_block         *ft_create_links(char *s);
+void        ft_path_visits(char *start,char *end, int size, t_block **links);
 
 
 int             ft_checking_ants(char *s);
