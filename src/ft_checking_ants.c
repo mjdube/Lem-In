@@ -1,10 +1,12 @@
-#include "../libft/libft.h"
+#include "lem_in.h"
 
-int         ft_checking_ants(char *s)
+int         ft_checking_ants(t_notes *map)
 {
+    char    *s;
     int     i;
     
     i = 0;
+    s = map->note;
     if (s == NULL)
         return (0);
     if (ft_strlen(s) > 1)
@@ -25,4 +27,11 @@ int         ft_checking_ants(char *s)
             return (0);
     }
     return (1);
+}
+
+int            ft_num_of_ants(t_notes *map)
+{
+    if (ft_checking_ants(map))
+        return (ft_atoi(map->note));
+    return (0);
 }

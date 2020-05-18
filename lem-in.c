@@ -2,7 +2,28 @@
 
 int                 main(int argc, char **argv)
 {
-    char            *line;
+    t_notes         *map;
+    t_notes         *farm;
+    // It replicates the map, saves as a linked list
+    map = create_map();
+
+    /* This checks if the farm has a ants, 
+    rooms/links and the commands... still working the 
+    solution to make a path */
+    farm = map;
+    if (ft_check_farm(farm))
+    {
+        // Returns number of ants
+        if (ft_num_of_ants(farm) > 0)
+        {
+            
+        }
+        else 
+            ft_putendl("Error");
+    }
+    else 
+        ft_putendl("Error");
+    /*
     char            **start;
     char            **end;
     int             count_links;
@@ -67,6 +88,7 @@ int                 main(int argc, char **argv)
             ft_putstr("ERROR\n");
     }
     else
-        ft_putstr("ERROR\n");    
+        ft_putstr("ERROR\n");
+        */    
     return (0);
 }
