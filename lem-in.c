@@ -2,24 +2,48 @@
 
 int                 main(int argc, char **argv)
 {
+    char            *start;
+    char            *end;
+    int             i;
     t_notes         *map;
     t_notes         *farm;
-    // It replicates the map, saves as a linked list
+    t_block         *paths[1024];
+    t_block         *links[1024];
+
+    /* It replicates the map, saves as a linked list */ 
     map = create_map();
+    farm = map;
 
     /* This checks if the farm has a ants, 
     rooms/links and the commands... still working the 
     solution to make a path */
-    farm = map;
     if (ft_check_farm(farm))
     {
-        // Returns number of ants
-        if (ft_num_of_ants(farm) > 0)
-        {
-            
-        }
-        else 
-            ft_putendl("Error");
+        /* This function FT_SCAN scans for ##start room name, ##end room name
+         and create links */
+        ft_scan(&(*links), farm, &start, &end);
+
+        /* This function FT_PATH_VISITS goes thru the links array variable 
+        and look for room names that can create a path. The most important
+        variable in this function is "visit_1", all visit by default is equal
+        to 0 and are then changed to 1 if the room name is found and matched
+        */
+        ft_path_visits(start, end, ft_links_len(links), &(*links));
+
+        /* This function FT_PATH_LIST does a similar thing like FT_PATH_VISIT
+        function, it looks for the same thing but if "visit_1 = 1" and name is 
+        found/matched. Once that is found and matched then we mark name room
+        by changing "visit_2" to 1 because by default "visit_2 = 0" and then it
+        creates a new linked list with a path
+        */
+        ft_path_list(start, end, ft_links_len(links), &(*links), &(*paths));
+
+            if (ft_num_of_ants(farm) > 0)
+            {
+
+            }
+            else 
+                ft_putendl("Error");
     }
     else 
         ft_putendl("Error");
@@ -35,7 +59,6 @@ int                 main(int argc, char **argv)
 
     t_block         *pre_paths;
    
-
     t_block  *links[1024];
     t_block  *paths[1024];
     

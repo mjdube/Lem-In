@@ -2,10 +2,10 @@ LEM_IN = lem-in.c
 LIBFT = libft.a
 
 SRC = ft_checking_ants.c ft_createNode.c ft_search_start_end.c ft_find_links.c ft_path_list.c ft_path_visits.c \
-ft_check_farm.c
+ft_check_farm.c ft_scan.c ft_list_len.c ft_create_map.c ft_links_len.c
 
 OBJ = ft_checking_ants.o ft_createNode.o ft_search_start_end.o ft_find_links.o ft_path_list.o ft_path_visits.o \
-ft_check_farm.o
+ft_check_farm.o ft_scan.o ft_list_len.o ft_create_map.o ft_links_len.o
 
 DIRSRC = ./src
 DIRLIBFT = ./libft

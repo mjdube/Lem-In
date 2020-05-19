@@ -37,9 +37,11 @@ static t_block      *ft_path_creation_reverse(t_block *links, t_block *list)
         temp = temp->next;
     temp->next = links;
     links = links->prev;
-    links->next = links->prev;
-    temp = temp->next;
+    links->prev = links->next;
+    links->next = NULL;
+    links = links->prev;
     links->prev = temp;
+    links->next = links->prev;
     return (list);  
 }
 
@@ -80,6 +82,5 @@ void                ft_path_list(char *start, char *end, int size, t_block **lin
         }
         else
             i++;
-        // ft_putendl(ft_itoa(i));
     }
 }

@@ -57,8 +57,6 @@ t_notes			*create_map(void)
 	i = 0;
 	list = NULL;
 	while (get_next_line(0, &line) > 0)
-	{
 		head_node(&list, line);
-	}
 	return (list);
 }
