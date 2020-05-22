@@ -4,7 +4,7 @@ t_block     *ft_createNode(void)
 {
     t_block *node;
 
-    node = (t_block*)ft_memalloc(sizeof(t_block));
+    node = (t_block*)malloc(sizeof(t_block));
     node->nameRoom = NULL;
     node->visit_1 = 0;
     node->visit_2 = 0;

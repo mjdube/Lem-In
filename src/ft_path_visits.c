@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-void            ft_path_visits(char *start, char *end, int size, t_block **links)
+int            ft_path_visits(char *start, char *end, int size, t_block **links)
 {
     int         i;
 
@@ -9,7 +9,7 @@ void            ft_path_visits(char *start, char *end, int size, t_block **links
     i = 0;
     list = NULL;
     if (start == NULL ||links == NULL)
-        return ;
+        return (0);
     while (i < size && ft_strcmp(start, end) != 0)
     {
         if (ft_strcmp(links[i]->nameRoom, start) == 0) 
@@ -43,4 +43,7 @@ void            ft_path_visits(char *start, char *end, int size, t_block **links
         else
             i++;
     }
+    if (ft_strcmp(start, end) == 0 && i != size)
+        return (1);
+    return (0);
 }

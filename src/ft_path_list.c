@@ -45,13 +45,15 @@ static t_block      *ft_path_creation_reverse(t_block *links, t_block *list)
     return (list);  
 }
 
-void                ft_path_list(char *start, char *end, int size, t_block **links, t_block **list)
+t_block                *ft_path_list(char *start, char *end, int size, t_block **links)
 {
     int             i;
+    t_block         *list;
 
     i = 0;
+    list = NULL;
     if (start == NULL ||links == NULL)
-        return ;
+        return (NULL);
     while (i < size && ft_strcmp(start, end) != 0)
     {
         if (ft_strcmp(links[i]->nameRoom, start) == 0) 
@@ -61,11 +63,15 @@ void                ft_path_list(char *start, char *end, int size, t_block **lin
                 start = links[i]->next->nameRoom;
                 links[i]->visit_2 = 1;
                 links[i]->next->visit_2 = 1;
-                (*list) = ft_path_creation(links[i], (*list));
+                list = ft_path_creation(links[i], list);
                 i = 0;
             }
-            else 
-                i++;         
+            else
+            {
+                i++;
+                ft_putnbr(i);
+            }
+                // i++;         
         }
         else if (ft_strcmp(links[i]->next->nameRoom, start) == 0)
         {
@@ -74,13 +80,24 @@ void                ft_path_list(char *start, char *end, int size, t_block **lin
                 start = links[i]->next->prev->nameRoom;
                 links[i]->next->visit_2 = 1;
                 links[i]->next->prev->visit_2 = 1;
-                (*list) = ft_path_creation_reverse(links[i]->next, (*list));
+                list = ft_path_creation_reverse(links[i]->next, list);
                 i = 0;
             }
             else 
+            {
                 i++;
+                ft_putnbr(i);
+            }
+                // i++;
         }
         else
-            i++;
+        {
+                
+                i++;
+                ft_putnbr(i);
+            }
+            // i++;
+
     }
+    return (list);
 }
