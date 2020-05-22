@@ -18,9 +18,9 @@ int                 main(int argc, char **argv)
     farm = map;
     if (ft_check_farm(farm))
     {
-        ft_putstr("hello -> lem in 1");
+        ft_putstr("hello -> lem in 1\n");
         ft_scan(&(*links), farm, &start, &end);
-        ft_putstr("hello -> lem in 2");
+        ft_putstr("hello -> lem in 2\n");
         graph = ft_create_graph(links);
     }
     else 
