@@ -18,10 +18,14 @@ int                 main(int argc, char **argv)
     farm = map;
     if (ft_check_farm(farm))
     {
-        ft_putstr("hello -> lem in 1\n");
-        ft_scan(&(*links), farm, &start, &end);
-        ft_putstr("hello -> lem in 2\n");
-        graph = ft_create_graph(links);
+        if (ft_num_of_ants(farm) > 0)
+        {
+            ft_scan(&(*links), farm, &start, &end);
+            graph = ft_create_graph(links);
+        }
+        else 
+            ft_putendl("Error");
+
     }
     else 
         ft_putendl("Error");
