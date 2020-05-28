@@ -14,25 +14,26 @@ void		create_room_r(t_map **graph, t_block *link)
 		(*graph) = (t_map *)malloc(sizeof(t_map));
 		new_link = (t_map *)malloc(sizeof(t_map));
 
-		temp->roomName = link->nameRoom;
+		(*graph)->roomName = link->nameRoom;
+		(*graph)->visit = 0;
 		new_link->roomName = link->prev->nameRoom;
-		
-		temp->links = new_link;
-		temp->rooms = NULL;
+		new_link->visit = 0;
+
+		(*graph)->links = new_link;
+		(*graph)->rooms = NULL;
+		new_link->links = NULL;
 	}
 	else 
 	{
 		while (temp->rooms != NULL)
-		{
 			temp = temp->rooms;
-		}
 
 		new_room = (t_map *)malloc(sizeof(t_map));
 		new_link = (t_map *)malloc(sizeof(t_map));
 
 		new_room->roomName = link->nameRoom;
 		new_link->roomName = link->prev->nameRoom;
-
+		new_link->visit = 0;
 		new_room->rooms = NULL;
 		new_room->links = new_link;
 		temp->rooms = new_room;
@@ -56,6 +57,8 @@ void		create_room(t_map **graph, t_block *link)
 
 		(*graph)->roomName = link->nameRoom;
 		new_link->roomName = link->next->nameRoom;
+		(*graph)->visit = 0;
+		new_link->visit = 0;
 
 		(*graph)->links = new_link;
 		(*graph)->rooms = NULL;
@@ -70,6 +73,8 @@ void		create_room(t_map **graph, t_block *link)
 
 		new_room->roomName = link->nameRoom;
 		new_link->roomName = link->next->nameRoom;
+		new_room->visit = 0;
+		new_link->visit = 0;
 
 		new_room->rooms = NULL;
 		new_link->links = NULL;
@@ -98,7 +103,8 @@ void		found_room_r(t_map **graph, t_block *links)
 	new_link = (t_map *)malloc(sizeof(t_map));
 	
 	new_link->roomName = links->prev->nameRoom;
-	
+	new_link->visit = 0;
+
 	new_link->links = NULL;
 	
 	temp->links = new_link;
@@ -124,7 +130,8 @@ void		found_room(t_map **graph, t_block *links)
 	new_link = (t_map *)malloc(sizeof(t_map));
 
 	new_link->roomName = links->next->nameRoom;
-	
+	new_link->visit = 0;
+
 	new_link->links = NULL;
 	
 	temp->links = new_link;
@@ -145,33 +152,16 @@ t_map       *ft_create_graph(t_block **links)
 	
     while (link[i] != NULL)
     {
-		
         if (check_room(graph, link[i]) == 1)
-		{
-			
 			found_room(&graph, link[i]);	
-		}			
 		else if (check_room(graph, link[i]) == 0)
-		{
-	
 			create_room(&graph, link[i]);
-		}
-			// create_room(&*graph, link[i]);
-		// ft_putendl(graph->roomName);
-		// ft_putendl(*graph->links->roomName);
-		// ft_putchar('\n');
+
 		if (check_room(graph, link[i]->next) == 1)
-		{
 			found_room_r(&graph, link[i]->next);
-		}
 		else if (check_room(graph, link[i]->next) == 0)
-		{
 			create_room_r(&graph, link[i]->next);
-		}
-		// ft_putendl(*graph->roomName);
-		// ft_putendl(*graph->links->roomName);
 		
-		// ft_putchar('\n');
 		i++;
     }
 	return (graph);

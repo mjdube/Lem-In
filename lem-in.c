@@ -1,18 +1,12 @@
 #include "src/lem_in.h"
 
-
-
-int                 main(int argc, char **argv)
+int                 main(void)
 {
     char            *start;
     char            *end;
-    int             i;
-    int             count_path;
     t_notes         *map;
     t_notes         *farm;
     t_map           *graph;
-    t_map           *room;
-    t_map           *link;
     t_block         *paths[1024];
     t_block         *links[1024];
 
@@ -23,28 +17,26 @@ int                 main(int argc, char **argv)
         if (ft_num_of_ants(farm) > 0)
         {
             ft_scan(&(*links), farm, &start, &end);
-
             graph = ft_create_graph(links);
-            link  = graph;
-            room = graph;
-            while (link)
-            {
-                ft_putendl(link->roomName);
-                link = link->links;
-            }
-            ft_putchar('\n');
-            while (room)
-            {
-                ft_putendl(room->roomName);
-                room = room->rooms;
-            }
+            ft_putstr("graph ->> ");
+            ft_putendl(graph->roomName);
+            ft_create_paths(&(*paths), graph, start, end);
+            // while (paths[1])
+            // {
+            //     ft_putendl(paths[1]->nameRoom);
+            //     paths[1] = paths[1]->next;
+            // }
+            // while (paths[0])
+            // {
+            //     ft_putendl(paths[0]->nameRoom);
+            //     paths[0] = paths[0]->next;
+            // }
+            // ft_create_paths(&(*paths), graph, start, end);
         }
         else 
             ft_putendl("Error");
-
     }
     else 
         ft_putendl("Error");
-
     return (0);
 }

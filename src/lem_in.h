@@ -15,6 +15,7 @@ typedef struct      s_node
 typedef struct      s_map
 {
     char    *roomName;
+    int     visit;
     struct  s_map  *links;
     struct  s_map  *rooms;
 }                   t_map;
@@ -28,7 +29,10 @@ typedef struct      n_node
 
 t_block         *ft_createNode(void);
 t_block         *ft_create_links(char *s);
-t_block         **ft_create_paths(char *start, char *end, t_block **links);
+// t_block         **ft_create_paths(char *start, char *end, t_block **links);
+// t_block         **ft_create_paths(t_map *graph, char *s, char *e);
+void            ft_create_paths(t_block **paths, t_map *graph, char *s, char *e);
+
 
 t_block         *ft_path_list(char *start, char *end, int size, t_block **links);
 

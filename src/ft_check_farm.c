@@ -72,6 +72,8 @@ int         ft_check_farm(t_notes *map)
     t_notes *farm;
     
     farm = map;
+    if (farm == NULL)
+        return (0);
     if (ft_commands(farm) != 2)
         return (0);
     if (!ft_ants_map(farm))
