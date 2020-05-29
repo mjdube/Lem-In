@@ -1,5 +1,20 @@
 #include "lem_in.h"
 
+void        free_path(t_block **path)
+{
+    t_block *p;
+
+    ft_putendl((*path)->nameRoom);
+    // p = *path;
+    while ((*path)->next != NULL)
+    {
+        ft_putendl((*path)->nameRoom);
+        p = *path;
+        (*path) = (*path)->next;
+        free(p);
+    }
+}
+
 int         is_path(t_block *path, char *end)
 {
     t_block *links;
@@ -76,15 +91,21 @@ static int      next_room(t_block **path, t_map *graph, char **s)
     ft_putnbr(dup_names(*path));
     ft_putchar('\n');
     sleep(3);
-    while ((dup_names(*path) == 1) && g->links)
+    while ((dup_names(*path) == 1) && g)
     {
         ft_putstr("dup_name ->> ");
         ft_putnbr(dup_names(*path));
         ft_putchar('\n');
         ft_putstr("roomName Before ");
         ft_putendl(g->roomName);
+        if (g->links == NULL)
+        {
+            // free_path(&(*path));
+            return (0);
+        }
         g = g->links;
         temp->nameRoom = g->roomName;
+
         ft_putstr("roomName After ");
         ft_putendl(g->roomName);
         sleep(3);
@@ -216,47 +237,3 @@ void                ft_create_paths(t_block **paths, t_map *graph, char *s, char
         start = s;
     }
 }
-
-/*
-static int      ft_look_another_path(t_block **links, char *end)
-{
-    int     i;
-
-    i = 0;
-    if (end == NULL)
-        return (0);
-    while (links[i])
-    {
-        if (ft_strcmp(links[i]->nameRoom, end) == 0)
-        { 
-                
-        }
-        else if (ft_strcmp(links[i]->next->nameRoom, end) == 0)
-        {
-
-        }
-    }
-}
-
-t_block         **ft_create_paths(char *start, char *end, t_block **links)
-{
-    int         count_path;
-    int         i;
-    t_block     *pre_path;
-    t_block     *paths[1028];
-
-    count_path = 0;
-    i = 1;
-    // while (i)
-    // {
-        // ft_path_visits(start, end, ft_links_len(links), &(*links));
-        // ft_path_list(start, end, ft_links_len(links), &(*links), pre_path);
-        // paths[0] = pre_path;
-
-        // // count_path++;
-        // ft_path_visits(start, end, ft_links_len(links), &(*links));
-        // ft_path_list(start, end, ft_links_len(links), &(*links), pre_path);
-        // paths[1] = pre_path;
-    // }
-}
-*/
