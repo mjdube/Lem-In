@@ -33,6 +33,7 @@ t_block         *ft_create_links(char *s);
 // t_block         **ft_create_paths(t_map *graph, char *s, char *e);
 void            ft_create_paths(t_block **paths, t_map *graph, char *s, char *e);
 
+void	        empty_stack(t_block **lst);
 
 t_block         *ft_path_list(char *start, char *end, int size, t_block **links);
 

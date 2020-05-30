@@ -100,7 +100,8 @@ static int      next_room(t_block **path, t_map *graph, char **s)
         ft_putendl(g->roomName);
         if (g->links == NULL)
         {
-            // free_path(&(*path));
+            // empty_stack(&(*path));
+            // (*path) = NULL;
             return (0);
         }
         g = g->links;

@@ -15,7 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define BUFF_SIZE 32
+# define BUFF_SIZE 64
 
 int				ft_isalpha(int c);
 int				ft_isalnum(int c);

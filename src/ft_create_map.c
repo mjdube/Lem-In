@@ -2,15 +2,15 @@
 
 void	empty_stack(t_block **lst)
 {
-	t_block *temp;
-
-	while ((*lst)->next != NULL)
+	/*while ((*lst)->next != NULL)
 	{
 		temp = *lst;
 		*lst = (*lst)->next;
 		free(temp);
-	}
-	// free(temp);
+	}*/
+	if ((*lst)->next)
+		empty_stack(&(*lst));
+	free((*lst));
 }
 
 static void	rest_of_node(t_notes **list, char *str)

@@ -4,6 +4,7 @@ int                 main(void)
 {
     char            *start;
     char            *end;
+    int             ants;
     t_notes         *map;
     t_notes         *farm;
     t_notes         *farm2;
@@ -21,21 +22,10 @@ int                 main(void)
     }
     if (ft_check_farm(farm))
     {
-        if (ft_num_of_ants(farm) > 0)
+        if ((ants = ft_num_of_ants(farm)) > 0)
         {
             ft_scan(&(*links), farm, &start, &end);
             graph = ft_create_graph(links);
-            ft_create_paths(&(*paths), graph, start, end);
-            while (paths[1])
-            {
-                ft_putendl(paths[1]->nameRoom);
-                paths[1] = paths[1]->next;
-            }
-            while (paths[0])
-            {
-                ft_putendl(paths[0]->nameRoom);
-                paths[0] = paths[0]->next;
-            }
             ft_create_paths(&(*paths), graph, start, end);
         }
         else 
