@@ -1,6 +1,11 @@
 #include "lem_in.h"
 
-/*looks for links, ##star room and ##end room*/
+/*ft_scan
+
+    basically it looks for the commands
+    looks for links
+    at the end it create links
+*/
 
 void            ft_scan(t_block **links, t_notes *map, char **s, char **e)
 {

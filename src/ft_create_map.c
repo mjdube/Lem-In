@@ -2,12 +2,6 @@
 
 void	empty_stack(t_block **lst)
 {
-	/*while ((*lst)->next != NULL)
-	{
-		temp = *lst;
-		*lst = (*lst)->next;
-		free(temp);
-	}*/
 	if ((*lst)->next)
 		empty_stack(&(*lst));
 	free((*lst));

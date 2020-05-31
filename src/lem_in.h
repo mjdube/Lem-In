@@ -3,6 +3,15 @@
 
 #include "../libft/libft.h"
 
+typedef struct      s_ant
+{
+    int         number;
+
+    struct s_node *link;
+    struct s_ant *next;
+    struct s_ant *prev;
+}                   t_ants;
+
 typedef struct      s_node 
 {
     char    *nameRoom;
@@ -10,6 +19,7 @@ typedef struct      s_node
     int     visit_2;
     struct  s_node *next;
     struct  s_node *prev;
+    struct  s_node *ants;
 }                   t_block;
 
 typedef struct      s_map
@@ -40,6 +50,8 @@ t_block         *ft_path_list(char *start, char *end, int size, t_block **links)
 t_notes         *create_map(void);
 
 t_map           *ft_create_graph(t_block **links);
+
+t_ants          *ft_ants(int ants);
 
 // void            ft_path_list(char *start, char *end, int size, t_block **links, t_block **list);
 
