@@ -51,6 +51,12 @@ int			ft_is_link(char *exist, t_rooms *rooms);
 int         ft_search_start_end(char *s);
 int		    int_max(char *str);
 
+int			ft_print_3(int check, char **path, t_keys *keys, int size);
+int			ft_print_2(int check, char **path, t_keys *keys);
+int			ft_print_1(int check, char **path, t_keys *keys);
+int         ft_print_ants_2(int check, char **roomName, t_keys *keys);
+int         ft_print_ants_1(int check, char **roomName, t_keys *keys);
+
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *map);
 void		empty_stack(char **tmp, int x);
 void	    ft_begin(t_keys *keys);

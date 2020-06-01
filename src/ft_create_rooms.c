@@ -52,6 +52,7 @@ t_rooms    *ft_create_rooms(t_keys *keys, t_rooms *rooms)
 			keys->read = ft_strdup(line);
 			break ;
 		}
+		ft_putendl(line);
 		free(line);
 		free(temp);
 	}

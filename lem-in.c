@@ -12,8 +12,9 @@ int         main()
 	path = NULL;
 	links = NULL;
 	paths = NULL;
+
 	ft_begin(&keys); // <- WE ALLOCATE THE IMPORTANT KEYS TO NULL IF IT IS A STRING AND 0 IF IT IS NUMBER
-	ft_num_of_ants(&keys); // <- WE READ FROM THE MAP FILE AND CHECK IF IT IS NUMBER AND THEN SET OUR KEY->ANT = ANT NUMBER OF ANTS
+    ft_num_of_ants(&keys); // <- WE READ FROM THE MAP FILE AND CHECK IF IT IS NUMBER AND THEN SET OUR KEY->ANT = ANT NUMBER OF ANTS
     rooms = ft_create_rooms(&keys, rooms); // <- WE READ THE MAP FILE AND CHECK IF THERE ARE ROOMS AND WE COUNT AND COUNT THE NUMBER OF ROOMS = SET KEY->ROOMS = NUMBER OF ROOMS  
     links = ft_create_links(links, rooms, &keys); // <- WE READ THE MAP FILE AND LOOK FOR LINKS AND CREATE LINKS
     ft_check_start_end(&keys); // <- WE CHECK FOR START AND END STRINGS. IF THEY NOT THERE, WE EXIT

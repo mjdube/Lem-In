@@ -2,10 +2,10 @@ LEM_IN = lem-in.c
 LIBFT = libft.a
 
 SRC = execute.c ft_rooms.c ft_create_rooms.c ft_final_path.c ft_create_links.c ft_display_1.c ft_create_path.c \
-empty.c ft_display_2.c int_max.c 
+empty.c ft_display_2.c int_max.c ft_print.c
 
 OBJ = execute.o ft_rooms.o ft_create_rooms.o ft_final_path.o ft_create_links.o ft_display_1.o ft_create_path.o \
-empty.o ft_display_2.o int_max.o 
+empty.o ft_display_2.o int_max.o ft_print.o
 
 DIRSRC = ./src
 DIRLIBFT = ./libft

@@ -67,7 +67,6 @@ t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 	}
 	node->data = ft_strndup(roomName, i);
 	node->next = NULL;
-	ft_putendl(node->data);
 	keys->rooms++;
 	if (!rooms)
 		rooms = node;
