@@ -28,7 +28,7 @@ void	ft_num_of_ants(t_keys *keys)
 
 	while(get_next_line(0, &line) == 1)
 	{
-		if(int_max(line) && ft_atoi(line) > 0)
+		if(ft_int_max(line) && ft_atoi(line) > 0)
 		{
 			keys->ants = ft_atoi(line);
 			free(line);

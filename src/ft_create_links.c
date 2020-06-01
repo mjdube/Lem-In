@@ -1,49 +1,5 @@
 #include "lem_in.h"
 
-t_links		*ft_make_links(t_links *links, int i)
-{
-	int	x;
-
-	x = 0;
-	if (!(links = (t_links *)malloc(sizeof(t_links))))
-	{
-		ft_putstr("ERROR\n");
-		exit(0);
-	}
-	if (!(links->links = (int **)malloc(sizeof(int*) * i)))
-	{
-		ft_putstr("ERROR\n");
-		exit(0);
-	}
-	while (x < i)
-	{
-		if (!(links->links[x] = (int *)malloc(sizeof(int) * i)))
-		{
-			ft_putstr("ERROR\n");
-			exit(0);
-		}
-		x++;
-	}
-	return (links);
-}
-
-int			ft_is_link(char *roomName, t_rooms *rooms)
-{
-	int		i;
-	t_rooms	*temp;
-
-	i = 0;
-	temp = rooms;
-	while (temp)
-	{
-		if (!ft_strcmp(roomName, temp->data))
-			return (i);
-		i++;
-		temp = temp->next;
-	}
-	return (-1);
-}
-
 t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 {
 	char	**lst;

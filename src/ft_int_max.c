@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-int		 int_max(char *str)
+int		 ft_int_max(char *str)
 {
 	long long	value;
 	int			sign;
