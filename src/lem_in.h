@@ -3,72 +3,59 @@
 
 #include "../libft/libft.h"
 
-typedef struct      s_ant
+typedef struct		s_keys
 {
-    int         number;
+	char			*start;
+	char			*end;
+	char			*read;
+	int				ants;
+	int				rooms;              
+	int				room_counter;               
+}			        t_keys;
 
-    struct s_node *link;
-    struct s_ant *next;
-    struct s_ant *prev;
-}                   t_ants;
-
-typedef struct      s_node 
+typedef struct		s_rooms
 {
-    char    *nameRoom;
-    int     visit_1;
-    int     visit_2;
-    struct  s_node *next;
-    struct  s_node *prev;
-    struct  s_node *ants;
-}                   t_block;
+	char		    *data;          
+    struct s_rooms	*next;
+}			        t_rooms;
 
-typedef struct      s_map
+typedef struct		s_links
 {
-    char    *roomName;
-    int     visit;
-    struct  s_map  *links;
-    struct  s_map  *rooms;
-}                   t_map;
+	int				**links;            
+}			        t_links;
 
-typedef struct      n_node
+typedef struct		s_path
 {
-    char            *note;
-    struct n_node   *next;
-    struct n_node   *prev;
-}                   t_notes;
+	int		    	*visits;
+	char			*map;
+	struct  s_path	*next;
+}			        t_path;
 
-t_block         *ft_createNode(void);
-t_block         *ft_create_links(char *s);
-// t_block         **ft_create_paths(char *start, char *end, t_block **links);
-// t_block         **ft_create_paths(t_map *graph, char *s, char *e);
-void            ft_create_paths(t_block **paths, t_map *graph, char *s, char *e);
+typedef struct		s_visit
+{
+	int				*path;
+}					t_visit;
 
-void	        empty_stack(t_block **lst);
+t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *t_rooms);
+t_rooms		*ft_rooms(t_rooms *rooms, char *room_name, t_keys *keys);
 
-t_block         *ft_path_list(char *start, char *end, int size, t_block **links);
+t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys);
 
-t_notes         *create_map(void);
+t_path		*ft_final_path(t_path *visit, t_path *map, t_rooms *rooms, t_keys *keys);
+t_path		*ft_display_1(t_path *map, t_keys *keys);
+t_path		*ft_create_path(t_rooms *rooms, t_links *links, t_keys *keys, t_path  *visit);
 
-t_map           *ft_create_graph(t_block **links);
+char 		**ft_display_2(t_keys *keys, char **temp, int size);
 
-t_ants          *ft_ants(int ants);
+int			ft_is_link(char *exist, t_rooms *rooms);
+int         ft_search_start_end(char *s);
+int		    int_max(char *str);
 
-// void            ft_path_list(char *start, char *end, int size, t_block **links, t_block **list);
-
-// void            ft_path_visits(char *start,char *end, int size, t_block **links);
-void            ft_scan(t_block **links, t_notes *map, char **s, char **e);
-
-int             ft_path_visits(char *start, char *end, int size, t_block **links);
-
-int             check_links(t_map *graph, t_block *link);
-int             check_room(t_map *graph, t_block *link);
-
-int             ft_checking_ants(t_notes *map);
-int             ft_num_of_ants(t_notes *map);
-int             ft_search_start_end(char *s);
-int             ft_find_links(char *s);
-int             ft_check_farm(t_notes *map);
-int             ft_list_len(t_block *stack);
-int             ft_links_len(t_block **links);
+void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *map);
+void		empty_stack(char **tmp, int x);
+void	    ft_begin(t_keys *keys);
+void	    ft_check_start_end(t_keys *keys);
+void	    ft_num_of_ants(t_keys *keys);
+void		empty_map(t_path *map);
 
 #endif

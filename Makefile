@@ -1,13 +1,11 @@
 LEM_IN = lem-in.c
 LIBFT = libft.a
 
-SRC = ft_checking_ants.c ft_createNode.c ft_search_start_end.c ft_find_links.c ft_path_list.c ft_path_visits.c \
-ft_check_farm.c ft_scan.c ft_list_len.c ft_create_map.c ft_links_len.c ft_create_paths.c checks.c \
-ft_create_graph.c
+SRC = execute.c ft_rooms.c ft_create_rooms.c ft_final_path.c ft_create_links.c ft_display_1.c ft_create_path.c \
+empty.c ft_display_2.c int_max.c 
 
-OBJ = ft_checking_ants.o ft_createNode.o ft_search_start_end.o ft_find_links.o ft_path_list.o ft_path_visits.o \
-ft_check_farm.o ft_scan.o ft_list_len.o ft_create_map.o ft_links_len.o ft_create_paths.o checks.o \
-ft_create_graph.o
+OBJ = execute.o ft_rooms.o ft_create_rooms.o ft_final_path.o ft_create_links.o ft_display_1.o ft_create_path.o \
+empty.o ft_display_2.o int_max.o 
 
 DIRSRC = ./src
 DIRLIBFT = ./libft
