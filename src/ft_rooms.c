@@ -1,5 +1,6 @@
 #include "lem_in.h"
 
+
 t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 {
 	t_rooms	*node;
@@ -7,7 +8,7 @@ t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 	int		i;
 
 	if (!ft_is_room(roomName))
-	{
+	{ 
 		ft_putstr("ERROR\n");
 		exit(0);
 	}

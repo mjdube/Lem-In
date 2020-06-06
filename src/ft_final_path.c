@@ -41,6 +41,7 @@ t_path		*ft_add_to_path(t_path *path, t_rooms *rooms, t_keys *keys)
 	return (path);
 }
 
+
 t_path		*ft_final_path(t_path *visit, t_path *path, t_rooms *rooms, t_keys *keys)
 {
 	int		i;

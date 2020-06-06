@@ -22,9 +22,29 @@ void	ft_check_start_end(t_keys *keys)
     }
 }
 
-void	ft_num_of_ants(t_keys *keys)
+void	ft_num_of_ants(t_keys *keys, t_notes *map)
 {
-	char	*line;
+	t_notes *farm;
+
+	farm = map;
+	while (farm->next != NULL)
+	{
+		if (ft_int_max(farm->note) && ft_atoi(farm->note) > 0)
+		{
+			keys->ants = ft_atoi(farm->note);
+			break ;
+		}
+		else 
+		{
+			if (farm->note[0] != '#')
+			{
+				ft_putstr("ERROR\n");
+				exit(0);
+			}
+		}
+		farm = farm->next;
+	}
+	/*char	*line;
 
 	while(get_next_line(0, &line) == 1)
 	{
@@ -45,5 +65,5 @@ void	ft_num_of_ants(t_keys *keys)
 		free(line);
 	}
 	ft_putnbr(keys->ants);
-	ft_putchar('\n');
+	ft_putchar('\n');*/
 }

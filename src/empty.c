@@ -41,6 +41,20 @@ void		empty_rooms(t_rooms *rooms)
 	free(rooms);
 }
 
+void		empty_map(t_notes *map)
+{
+	t_notes	*current;
+
+	current = NULL;
+	while ((current = map) != NULL)
+	{
+		map = map->next;
+		free(current->note);
+		free(current);
+	}
+	free(map);
+}
+
 void		empty_links(t_links *links, t_keys *keys)
 {
 	int	i;
@@ -55,12 +69,13 @@ void		empty_links(t_links *links, t_keys *keys)
 	free(links);
 }
 
-void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path)
+void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map)
 {
 	free(visit->visits);
 	empty_links(links, keys);
 	empty_path(path);
 	empty_rooms(rooms);
+	empty_map(map);
 	free(visit);
 	free(keys->start);
 	free(keys->end);

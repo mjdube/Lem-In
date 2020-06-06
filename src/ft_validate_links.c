@@ -27,6 +27,7 @@ t_links		*ft_make_links(t_links *links, int links_len)
 	return (links);
 }
 
+
 int			ft_is_link(char *roomName, t_rooms *rooms)
 {
 	int		i;

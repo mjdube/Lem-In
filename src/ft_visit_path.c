@@ -16,6 +16,7 @@ t_path		*ft_start_path(t_path *visit, t_keys *keys, int start)
 	return (visit);
 }
 
+
 t_visit		*ft_rec_visit(t_visit *visit, t_keys *keys, int start)
 {
 	if (!(visit = (t_visit *)malloc(sizeof(t_visit))))

@@ -23,7 +23,7 @@ t_path		*ft_visit_rooms(t_path *visit, int start, int end, t_keys *keys, t_links
 				{
 					visit->visits[j] = i;
 					s_room = i;   
-					break;
+					break ;
 				}
 				start = i;
 				i = 0;
@@ -35,6 +35,7 @@ t_path		*ft_visit_rooms(t_path *visit, int start, int end, t_keys *keys, t_links
 	}
 	return (visit);
 }
+
 
 t_path		*ft_create_path(t_rooms *rooms, t_links *links, t_keys *keys, t_path  *visit)
 {
