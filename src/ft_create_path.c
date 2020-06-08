@@ -15,6 +15,7 @@ t_path		*ft_visit_rooms(t_path *visit, int start, int end, t_keys *keys, t_links
 		i = 0;
 		while (i < keys->rooms)
 		{
+			// 
 			if (links->links[start][i] == 1 && !ft_dup(path->path, i, keys->rooms))
 			{
 				visit->visits[++j] = i;

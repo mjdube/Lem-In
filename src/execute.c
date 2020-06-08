@@ -44,26 +44,4 @@ void	ft_num_of_ants(t_keys *keys, t_notes *map)
 		}
 		farm = farm->next;
 	}
-	/*char	*line;
-
-	while(get_next_line(0, &line) == 1)
-	{
-		if(ft_int_max(line) && ft_atoi(line) > 0)
-		{
-			keys->ants = ft_atoi(line);
-			free(line);
-			break ;
-		}
-		else
-		{
-			if (line[0] != '#')
-			{
-                ft_putstr("ERROR\n");
-                exit(0);
-            }
-		}
-		free(line);
-	}
-	ft_putnbr(keys->ants);
-	ft_putchar('\n');*/
 }

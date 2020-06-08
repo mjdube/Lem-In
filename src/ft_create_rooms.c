@@ -35,7 +35,6 @@ int			ft_only_one(t_notes *map)
 		}		
 		farm = farm->next;
 	}
-	// ft_putnbr(i);
 	if ((i == 2) && (x == 1) && (j == 1))
 		return (1);
 	return (0);
@@ -75,7 +74,6 @@ void    	ft_room(char *line, t_keys *keys, int check_start_end)
 
 t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 {
-	// char	*line;
 	char	*temp;
 	int		check_start_end;
 	t_notes	*farm;
@@ -89,8 +87,6 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 	}
 	while (farm->next != NULL)
 	{
-		// ft_putendl(farm->note);
-		// ft_putendl("hello");
 		temp = ft_strdup(farm->note);
 		if (check_start_end > 0)
 			ft_room(temp, keys, check_start_end);
@@ -103,8 +99,6 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 				break ;
 		}
 		farm = farm->next;
-		// ft_putendl(line);
-		// free(line);
 		free(temp);
 	}
 	if (ft_strlen(farm->note) == 0)
@@ -112,8 +106,5 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		ft_putstr("ERROR\n");
 		exit(0);
 	}
-		
-	free(temp);
-	
 	return (rooms);
 }

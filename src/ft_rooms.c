@@ -17,7 +17,7 @@ t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 		exit(0);
 	}
 	i = ft_strchr(roomName, ' ') - roomName;
-	if (!(node = (t_rooms *)malloc(sizeof(t_rooms))))
+	if (!(node = (t_rooms *)malloc(sizeof(t_rooms *))))
 	{
 		ft_putstr("ERROR\n");
 		exit(0);

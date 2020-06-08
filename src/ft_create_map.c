@@ -46,15 +46,14 @@ t_notes	*head_node(t_notes *map, char *str)
 
 t_notes			*ft_create_map(t_notes *map)
 {
-	int			i;
-	int			check;
 	char		*line;
 
-	i = 0;
 	while (get_next_line(0, &line) > 0)
     {
         map = head_node(map, line);
         free(line);
     }
+	if (map == NULL)
+		return (NULL);
 	return (map);
 }

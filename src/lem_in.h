@@ -43,11 +43,10 @@ typedef struct		s_visit
 }					t_visit;
 
 t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map);
-// t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *t_rooms);
+
 t_rooms		*ft_rooms(t_rooms *rooms, char *room_name, t_keys *keys);
 t_notes		*ft_create_map(t_notes *map);
 
-// t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys);
 t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes *map);
 t_links		*ft_make_links(t_links *links, int links_len);
 
@@ -76,11 +75,11 @@ int			ft_is_path(char *str, t_path *path);
 
 void        ft_display_map(t_notes *map);
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map);
-// void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *map);
+
 void		empty_stack(char **tmp, int x);
 void	    ft_begin(t_keys *keys);
 void	    ft_check_start_end(t_keys *keys);
-// void	    ft_num_of_ants(t_keys *keys);
-void	ft_num_of_ants(t_keys *keys, t_notes *map);
+
+void		ft_num_of_ants(t_keys *keys, t_notes *map);
 void		empty_map(t_notes *map);
 #endif

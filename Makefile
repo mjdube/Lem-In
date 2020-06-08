@@ -22,7 +22,7 @@ all: libft_com lem-in_lib lem-in clean
 
 lem-in_lib:
 	@cd $(DIRSRC)
-	@gcc -c $(DIRSRC)/*.c
+	@gcc -c $(DIRSRC)/*.c -g
 	@ar rc $(DIRSRC)/lem-in.a *.o
 	@rm -fr *.o
 
@@ -35,6 +35,7 @@ lem-in:
 
 clean:
 	@rm -fr $(DIRSRC)/*.o
+	@rm -fr $(DIRLIBFT)/*.o
 	@echo "cleaning object files..."
 
 fclean: clean 
@@ -42,6 +43,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(DIRLIBFT)
 	@rm lem-in
 	@rm -fr $(DIRSRC)/*.o
+	@rm -fr $(DIRLIBFT)/*.o
 	@echo "library deleted..."
 
 re: fclean all
