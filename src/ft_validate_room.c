@@ -11,7 +11,7 @@ int			ft_check_room(char *roomName, t_rooms *rooms)
 		return (0);
 	while(temp)
 	{
-		if (ft_strequ(roomName, temp->data))
+		if (!ft_strcmp(roomName, temp->data))
 			return (1);
 		temp = temp->next;
 	}

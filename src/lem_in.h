@@ -22,8 +22,16 @@ typedef struct		s_keys
 typedef struct		s_rooms
 {
 	char		    *data;          
-    struct s_rooms	*next;
+    int				id_number;
+	struct s_linkroom *link;
+	struct s_rooms	*next;
 }			        t_rooms;
+
+typedef struct			s_linkroom
+{
+	t_rooms				*room;
+	struct s_linkroom	*next;
+}						t_linkroom;
 
 typedef struct		s_links
 {
@@ -44,7 +52,8 @@ typedef struct		s_visit
 
 t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map);
 // t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *t_rooms);
-t_rooms		*ft_rooms(t_rooms *rooms, char *room_name, t_keys *keys);
+t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys, int i);
+// t_rooms		*ft_rooms(int i, char *roomName, t_keys *keys);
 t_notes		*ft_create_map(t_notes *map);
 
 // t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys);
@@ -74,6 +83,7 @@ int			ft_check_room(char *roomName, t_rooms *rooms);
 int			ft_is_room(char *roomName);
 int			ft_is_path(char *str, t_path *path);
 
+void        ft_display_map(t_notes *map);
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map);
 // void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *map);
 void		empty_stack(char **tmp, int x);

@@ -37,7 +37,7 @@ int			ft_is_link(char *roomName, t_rooms *rooms)
 	temp = rooms;
 	while (temp)
 	{
-		if (ft_strequ(roomName, temp->data))
+		if (!ft_strcmp(roomName, temp->data))
 			return (i);
 		i++;
 		temp = temp->next;

@@ -19,6 +19,7 @@ int        ft_decrem_visit(int j)
 	j = j - 1;
 	if (j < 0)
 	{
+		ft_putendl("HELLO ft_decrem_vist");
 		ft_putstr("ERROR\n");
 		exit(0);
 	}

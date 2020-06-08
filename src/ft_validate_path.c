@@ -8,7 +8,7 @@ int			ft_is_path(char *str, t_path *path)
 	temp = path;
 	while(temp)
 	{
-		if (ft_strequ(str, path->map))
+		if (!ft_strcmp(str, path->map))
 			return (1);
 		temp = temp->next;
 	}

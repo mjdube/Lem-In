@@ -20,7 +20,6 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 	free(lst[0]);
 	free(lst[1]);
 	free(lst);
-	// ft_putendl(read);
 	if (start == -1 || end == -1)
 	{
 		ft_putstr("ERROR\n");
@@ -31,7 +30,6 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 	return (links);
 }
 
-
 t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes *map)
 {
 	int		i;
@@ -40,7 +38,6 @@ t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes 
 	i = keys->rooms;
 	farm = map;
 	links = ft_make_links(links, i);
-	
 	while (farm)
 	{
 		if (farm->note[0] != '#' && ft_strchr(farm->note, '-'))
@@ -49,15 +46,5 @@ t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes 
 			break ;
 		farm = farm->next;
 	}
-	/*
-	if (keys->read)
-		links = ft_links(rooms, links, keys->read);
-	free(keys->read);
-	while(get_next_line(0, &keys->read) != 0)
-	{
-		if (keys->read[0] != '#')
-			links = ft_links(rooms, links, keys->read);
-		free(keys->read);
-	}*/
 	return (links);
 }

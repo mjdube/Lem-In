@@ -7,7 +7,7 @@ int			ft_is_path(char *str, t_path *path)
 	temp = path;
 	while(temp)
 	{
-		if (ft_strequ(str, path->map))
+		if (!ft_strcmp(str, path->map))
 			return (1);
 		temp = temp->next;
 	}
@@ -23,6 +23,7 @@ t_path		*ft_add_to_path(t_path *path, t_rooms *rooms, t_keys *keys)
 		return (path);
 	if (!(node = (t_path *)malloc(sizeof(t_path *))))
 	{
+		ft_putendl("HELLO ft_add_to_path");
         ft_putstr("ERROR\n");
         exit(0);
     }

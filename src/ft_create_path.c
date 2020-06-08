@@ -39,17 +39,19 @@ t_path		*ft_visit_rooms(t_path *visit, int start, int end, t_keys *keys, t_links
 
 t_path		*ft_create_path(t_rooms *rooms, t_links *links, t_keys *keys, t_path  *visit)
 {
-	int	start;
-	int	end;
+	int		start;
+	int		end;
 	t_visit *path;
 
 	path = NULL;
 	start = ft_is_link(keys->start, rooms);
 	end = ft_is_link(keys->end, rooms);
+
 	visit = ft_start_path(visit, keys, start); 
 	path = ft_rec_visit(path, keys, start);
 	visit = ft_visit_rooms(visit, start, end, keys, links, path);
-	free(path->path);
+	if (path->path)
+		free(path->path);
 	free(path);
 	return (visit);
 }
