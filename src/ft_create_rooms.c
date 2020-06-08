@@ -35,6 +35,7 @@ int			ft_only_one(t_notes *map)
 		}		
 		farm = farm->next;
 	}
+	// ft_putnbr(i);
 	if ((i == 2) && (x == 1) && (j == 1))
 		return (1);
 	return (0);
@@ -60,13 +61,9 @@ void    	ft_room(char *line, t_keys *keys, int check_start_end)
 		exit(0);
 	}
 	if (check_start_end == 1)
-	{
 		keys->start = ft_strdup(name[0]);
-	}
 	if (check_start_end == 2)
-	{
 		keys->end = ft_strdup(name[0]);
-	}
 	i = 0;
 	while (name[i])
 	{
@@ -78,15 +75,13 @@ void    	ft_room(char *line, t_keys *keys, int check_start_end)
 
 t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 {
+	// char	*line;
 	char	*temp;
 	int		check_start_end;
 	t_notes	*farm;
-	int		status;
-	int		i; 
 
 	check_start_end = 0;
 	farm = map;
-	status = 0;
 	if (!ft_only_one(farm))
 	{
 		ft_putstr("ERROR\n");
@@ -94,24 +89,8 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 	}
 	while (farm->next != NULL)
 	{
-		if (ft_strchr(farm->note, ' ') && farm->note[0] != '#')
-		{
-			if (!ft_strcmp(farm->note, "##start"))
-				status = 1;
-			if (!ft_strcmp(farm->note, "##end"))
-				status = 2;
-			if (farm->note[0] != '#')
-			{
-				i = ft_strchr(farm->note, ' ') - farm->note;
-				rooms = ft_rooms(rooms, farm->note, keys, i);
-				if (status == 1)
-					keys->start = ft_strndup(farm->note, i);
-				if (status == 2)
-					keys->end = ft_strndup(farm->note, i);
-				status = 0;
-			}
-		}
-		/*
+		// ft_putendl(farm->note);
+		// ft_putendl("hello");
 		temp = ft_strdup(farm->note);
 		if (check_start_end > 0)
 			ft_room(temp, keys, check_start_end);
@@ -124,37 +103,17 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 				break ;
 		}
 		farm = farm->next;
-		free(temp);*/
+		// ft_putendl(line);
+		// free(line);
+		free(temp);
 	}
 	if (ft_strlen(farm->note) == 0)
 	{
 		ft_putstr("ERROR\n");
 		exit(0);
 	}
+		
 	free(temp);
-	/*
-	while (get_next_line(0, &env->line) > 0)
-	{
-		if (!ft_strchr(env->line, ' ') && env->line[0] != '#')
-			break ;
-		if (!ft_strcmp(env->line, "##start"))
-			status = 1;
-		if (!ft_strcmp(env->line, "##end"))
-			status = 2;
-		if (env->line[0] != '#')
-		{
-			// hello
-			i = ft_strchr(env->line, ' ') - env->line;
-			room = add_room(room, env, i);
-			if (status == 1)
-				env->start = ft_strndup(env->line, i);
-			if (status == 2)
-				env->end = ft_strndup(env->line, i);
-			status = 0;
-		}
-		ft_putendl(env->line);
-		free(env->line);
-	}
-	*/
+	
 	return (rooms);
 }
