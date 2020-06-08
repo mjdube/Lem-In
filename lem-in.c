@@ -20,9 +20,24 @@ int         main()
 	if (map != NULL)
 	{
 		ft_num_of_ants(&keys, map); // <- WE READ FROM THE MAP FILE AND CHECK IF IT IS NUMBER AND THEN SET OUR KEY->ANT = ANT NUMBER OF ANTS
-    	rooms = ft_create_rooms(&keys, rooms, map); // <- WE READ THE MAP FILE AND CHECK IF THERE ARE ROOMS AND WE COUNT AND COUNT THE NUMBER OF ROOMS = SET KEY->ROOMS = NUMBER OF ROOMS
-		links = ft_create_links(links, rooms, &keys, map); // <- WE READ THE MAP FILE AND LOOK FOR LINKS AND CREATE LINKS
-    	ft_check_start_end(&keys); // <- WE CHECK FOR START AND END STRINGS. IF THEY NOT THERE, WE EXIT
+    	if (checks_room(map) > 0)
+			rooms = ft_create_rooms(&keys, rooms, map); // <- WE READ THE MAP FILE AND CHECK IF THERE ARE ROOMS AND WE COUNT AND COUNT THE NUMBER OF ROOMS = SET KEY->ROOMS = NUMBER OF ROOMS
+		else 
+		{
+			empty_map(map);
+			ft_putstr("ERROR\n");
+			exit(0);
+		}
+		if (check_links(map) > 0)
+			links = ft_create_links(links, rooms, &keys, map); // <- WE READ THE MAP FILE AND LOOK FOR LINKS AND CREATE LINKS
+		else 
+		{
+			empty_rooms(rooms);
+			empty_map(map);
+			ft_putstr("ERROR\n");
+			exit(0);
+		}
+		ft_check_start_end(&keys); // <- WE CHECK FOR START AND END STRINGS. IF THEY NOT THERE, WE EXIT
 		paths = ft_create_path(rooms, links, &keys, paths); // <- WE CREATE DIFFERENT PATHS 
     	path = ft_final_path(paths, path, rooms, &keys); // <- WE LOOK FOR THE SHORT PATH AND CREATE THAT PATH
 		ft_display_map(map); // <- DISPLAYING THE MAP

@@ -72,10 +72,12 @@ int         ft_decrem_visit(int j);
 int			ft_check_room(char *roomName, t_rooms *rooms);
 int			ft_is_room(char *roomName);
 int			ft_is_path(char *str, t_path *path);
+int         check_links(t_notes *map);
+int         checks_room(t_notes *map);
 
 void        ft_display_map(t_notes *map);
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map);
-
+void		empty_rooms(t_rooms *rooms);
 void		empty_stack(char **tmp, int x);
 void	    ft_begin(t_keys *keys);
 void	    ft_check_start_end(t_keys *keys);

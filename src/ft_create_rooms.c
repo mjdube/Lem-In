@@ -106,5 +106,6 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		ft_putstr("ERROR\n");
 		exit(0);
 	}
+	// free(temp);
 	return (rooms);
 }

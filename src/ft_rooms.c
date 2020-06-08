@@ -34,5 +34,6 @@ t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 			temp = temp->next;
 		temp->next = node;
 	}
+	free(node);
 	return (rooms);
 }
