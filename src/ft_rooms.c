@@ -22,6 +22,7 @@ t_rooms		*ft_rooms(t_rooms *rooms, char *roomName, t_keys *keys)
 		ft_putstr("ERROR\n");
 		exit(0);
 	}
+	// 
 	node->data = ft_strndup(roomName, i);
 	node->next = NULL;
 	keys->rooms++;

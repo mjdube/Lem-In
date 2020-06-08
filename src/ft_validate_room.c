@@ -16,6 +16,7 @@ int			ft_check_room(char *roomName, t_rooms *rooms)
 	return (0);
 }
 
+
 int			ft_is_room(char *roomName)
 {
 	char	**temp;
