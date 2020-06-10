@@ -78,7 +78,8 @@ int         ft_rooms_map(t_notes *map);
 
 void        ft_display_map(t_notes *map);
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map);
-
+void		empty_links(t_links *links, t_keys *keys);
+void		empty_rooms(t_rooms *rooms);
 void		empty_stack(char **tmp, int x);
 void	    ft_begin(t_keys *keys);
 void	    ft_check_start_end(t_keys *keys);

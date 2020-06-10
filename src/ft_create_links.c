@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
+t_links		*ft_links(t_rooms *rooms, t_links *links, char *read, t_notes *map, t_keys *keys)
 {
 	char	**lst;
 	int		start;
@@ -23,7 +23,11 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 	free(lst);
 	if (start == -1 || end == -1)
 	{
-		ft_putendl("ft_links 2");
+		empty_map(map);
+		empty_rooms(rooms);
+		empty_links(links, keys);
+		free(keys->start);
+		free(keys->end);
 		ft_putstr("ERROR\n");
 		exit(0);
 	}	
@@ -43,7 +47,7 @@ t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes 
 	while (farm)
 	{
 		if (farm->note[0] != '#' && ft_strchr(farm->note, '-'))
-			links = ft_links(rooms, links, farm->note);
+			links = ft_links(rooms, links, farm->note, map, keys);
 		// if (farm->next == NULL)
 		// 	break ;
 		farm = farm->next;
