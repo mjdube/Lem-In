@@ -73,6 +73,9 @@ int			ft_check_room(char *roomName, t_rooms *rooms);
 int			ft_is_room(char *roomName);
 int			ft_is_path(char *str, t_path *path);
 
+int         ft_link_map(t_notes *map);
+int         ft_rooms_map(t_notes *map);
+
 void        ft_display_map(t_notes *map);
 void		empty(t_links *links, t_rooms *rooms, t_path *visit, t_keys *keys, t_path *path, t_notes *map);
 

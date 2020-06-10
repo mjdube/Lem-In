@@ -12,6 +12,7 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 		start++;
 	if (start != 2)
 	{
+		ft_putendl("ft_links 1");
 		ft_putstr("ERROR\n");
 		exit(0);
 	}	
@@ -22,6 +23,7 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read)
 	free(lst);
 	if (start == -1 || end == -1)
 	{
+		ft_putendl("ft_links 2");
 		ft_putstr("ERROR\n");
 		exit(0);
 	}	
@@ -42,8 +44,8 @@ t_links		*ft_create_links(t_links *links, t_rooms *rooms, t_keys *keys, t_notes 
 	{
 		if (farm->note[0] != '#' && ft_strchr(farm->note, '-'))
 			links = ft_links(rooms, links, farm->note);
-		if (farm->next == NULL)
-			break ;
+		// if (farm->next == NULL)
+		// 	break ;
 		farm = farm->next;
 	}
 	return (links);
