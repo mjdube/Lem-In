@@ -97,10 +97,22 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		if (!ft_strchr(farm->note, ' ') && farm->note[0] != '#')
 		{
 			if (ft_strchr(farm->note, '-'))
+			{
+				free(temp);
 				break ;
+			}
 		}
 		farm = farm->next;
 		free(temp);
 	}
+<<<<<<< HEAD
+=======
+	// if (ft_strlen(farm->note) == 0)
+	// {
+	// 	ft_putendl("ft_strlen..");
+	// 	ft_putstr("ERROR\n");
+	// 	exit(0);
+	// }
+>>>>>>> memory leaks checked
 	return (rooms);
 }
