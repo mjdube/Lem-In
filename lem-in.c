@@ -17,7 +17,7 @@ int         main()
 	
 	ft_begin(&keys); // <- WE ALLOCATE THE IMPORTANT KEYS TO NULL IF IT IS A STRING AND 0 IF IT IS NUMBER
 	map = ft_create_map(map); // <- WE RECREATE OUR MAP USING GNL AND THEN IT GETS STORED IN A LINKED LIST
-	if (map != NULL && ft_rooms_map(map) > 1 && ft_link_map(map) > 0)
+	if (map != NULL && ft_rooms_map(map) > 1 && ft_link_map(map) > 0 && ft_dest_present(map) == 2)
 	{
 		ft_num_of_ants(&keys, map); // <- WE READ FROM THE MAP FILE AND CHECK IF IT IS NUMBER AND THEN SET OUR KEY->ANT = ANT NUMBER OF ANTS
 		rooms = ft_create_rooms(&keys, rooms, map); // <- WE READ THE MAP FILE AND CHECK IF THERE ARE ROOMS AND WE COUNT AND COUNT THE NUMBER OF ROOMS = SET KEY->ROOMS = NUMBER OF ROOMS

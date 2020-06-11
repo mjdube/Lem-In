@@ -106,6 +106,7 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		free(temp);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	// if (ft_strlen(farm->note) == 0)
 	// {
@@ -114,5 +115,7 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 	// 	exit(0);
 	// }
 >>>>>>> memory leaks checked
+=======
+>>>>>>> Final
 	return (rooms);
 }
