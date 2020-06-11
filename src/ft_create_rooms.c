@@ -104,11 +104,5 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		farm = farm->next;
 		free(temp);
 	}
-	// if (ft_strlen(farm->note) == 0)
-	// {
-	// 	ft_putendl("ft_strlen..");
-	// 	ft_putstr("ERROR\n");
-	// 	exit(0);
-	// }
 	return (rooms);
 }

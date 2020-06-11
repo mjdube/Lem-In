@@ -12,7 +12,6 @@ t_links		*ft_links(t_rooms *rooms, t_links *links, char *read, t_notes *map, t_k
 		start++;
 	if (start != 2)
 	{
-		ft_putendl("ft_links 1");
 		ft_putstr("ERROR\n");
 		exit(0);
 	}	
