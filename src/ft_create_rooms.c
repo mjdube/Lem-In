@@ -85,7 +85,6 @@ t_rooms		*ft_create_rooms(t_keys *keys, t_rooms *rooms, t_notes *map)
 		ft_putstr("ERROR\n");
 		exit(0);
 	}
-	// 
 	while (farm->next != NULL)
 	{
 		temp = ft_strdup(farm->note);
